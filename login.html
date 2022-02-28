@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录界面</title>
+    <link rel="stylesheet" href="index.css" />
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 200vh;
+            overflow-x: hidden;
+        }
+
+        .background {
+            background-image: url("1.jpeg");
+            background-size: cover;
+            background-position: 50% 50%;
+            height: 200vh;
+            font: 900 39rem '';
+            line-height: 130vh;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .background::before {
+            content: '';
+            background-size: cover;
+            background-image: inherit;
+            background-position: 50% 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: -99;
+        }
+
+        #title {
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            letter-spacing: 10px;
+            color: #fff;
+        }
+        #beian{
+            text-align: center;
+            display:block;
+            color:#FFF;
+            position: absolute;
+            top:197vh;
+            margin: 0 auto;
+        }
+        a:link { text-decoration: none;color: #FFF}
+        a:active { text-decoration:blink}
+        a:hover { text-decoration:underline;color: #FFF}
+        a:visited { text-decoration: none;color: #FFF}
+    </style>
+</head>
+
+<body>
+    <h1 id="title">shh&cxx<br />灰灰和小小的小窝</h1>
+    <div class="background">
+        <span>Luft</span>
+    </div>
+    <form action="" method="post" id="myform">
+    <div class="login">
+        <h2>用户登录</h2>
+        <div class="login_box">
+            <input id="un" type="text" required /><label>用户名</label>
+        </div>
+        <div class="login_box">
+            <input id="psw" type="password" required="required" /><label>密码</label>
+        </div>
+        <a href="#" onclick="document.getElementById('myform').submit();return false;">
+            登录
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </a>
+        <div id="errinfo"></div>
+    </div>
+    </form>
+    <span id="beian"><a href="https://beian.miit.gov.cn/" target="_blank">陕ICP备2022000718号</a></span>
+
+    <script>
+        const background = document.querySelector(".background")
+
+        document.addEventListener('scroll', () => {
+            const scrollY = window.scrollY
+
+            if (scrollY !== 0) {
+                background.style.backgroundPosition = `calc(50% + ${scrollY}px) calc(50% + ${scrollY}px)`
+            }else{
+                background.style.backgroundPosition = ''
+            }
+        })
+    </script>
+</body>
+
+</html>
